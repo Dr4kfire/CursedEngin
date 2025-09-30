@@ -1,0 +1,3 @@
+[submodule "lib/PDCursesMod"]
+	path = lib/PDCursesMod
+	url = https://github.com/bill-gray/PDCursesMod.git

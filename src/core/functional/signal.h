@@ -26,13 +26,10 @@ public:
     // Emit the signal
     void emit(Args... args)
     {
-        std::map<Id, Conn> copy = connections;
-        for (int i = 1; i < copy.size(); i++)
+        std::unordered_map<Id, Conn> copy = connections;
+        for (Id signal_id : copy.key_eq())
         {
-            Conn connection = &copy[i];
-
-            if (connection == null) continue;
-            connection(args...);
+            copy[signal_id](args...);
         }
     }
 

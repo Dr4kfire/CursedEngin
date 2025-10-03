@@ -27,9 +27,10 @@ public:
     void emit(Args... args)
     {
         std::unordered_map<Id, Conn> copy = connections;
-        for (Id signal_id : copy.key_eq())
+        for (const std::pair<Id, Conn> &connection_pair : copy)
         {
-            copy[signal_id](args...);
+            if (!connection_pair.second) continue;
+            connection_pair.second(args...);
         }
     }
 

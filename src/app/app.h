@@ -1,6 +1,9 @@
 #pragma once
 
 
+#include <chrono>
+
+#include "states/states_manager.h"
 #include "../core/types/vec2.h"
 
 
@@ -14,8 +17,12 @@ public:
     void process();
 
 public:
+    vec2 win_size;
+
     bool should_close = false;
+    
+    AppStatesManager states;
 
 private:
-    vec2 win_size;
+    std::chrono::high_resolution_clock::time_point last_time;
 };

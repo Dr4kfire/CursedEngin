@@ -4,7 +4,6 @@
 int main(int argc, char const *argv[])
 {
     Application app;
-    
     while (!app.should_close)
     {
         app.draw();

@@ -1,7 +1,11 @@
 #include "../app_state.h"
 
-class TestState : public AppState
+class TestState : protected AppState
 {
 public:
-    TestState() : AppState() {}
+    TestState(AppStatesManager *manager) : AppState(manager) {}
+
+    void process(double delta_time) override;
+    void draw() override;
+    void input(char input) override;
 };
